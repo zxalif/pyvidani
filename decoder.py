@@ -3,6 +3,7 @@ import cv2
 import glob
 import sys
 import os
+from argparse import ArgumentParser
 
 FRAME_DIRECTORY = "./frames/"
 
@@ -153,4 +154,9 @@ def main(file):
 
 
 if __name__ == '__main__':
-    main("./sample/horse-riding.mp4")
+    parser = ArgumentParser(description='Process video to text video.')
+    parser.add_argument('-f', '--file', type=str,
+                    help='Source of video file.')
+    args = parser.parse_args()
+    if not os.path.isfile(args.file): print("The video path doesn't exists!")
+    else: main(args.file)
