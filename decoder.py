@@ -7,6 +7,8 @@ from argparse import ArgumentParser
 
 FRAME_DIRECTORY = "./frames/"
 
+if not os.path.isdir(FRAME_DIRECTORY): os.mkdir(FRAME_DIRECTORY)
+
 
 def extract_frames(video):
     cap = cv2.VideoCapture(video)
